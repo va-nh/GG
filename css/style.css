@@ -282,14 +282,75 @@ body {
     position: absolute;
     filter: blur(120px);
     opacity: 0.7;
-    transition: transform 0,3s cubic-bezier(0.4, 0, 0.2, 1);
+    /*transition: transform 0,3s cubic-bezier(0.4, 0, 0.2, 1);*/
+    animation: float 26s infinite ease-out;
 }
+/* Анимация движения */
+/*@keyframes float {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(80px, -50px);
+    }
+    50% {
+        transform: translate(-80px, 50px);
+    }
+    75% {
+        transform: translate(10px, 10px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}*/
+    @keyframes float {
+        0% {
+            transform: translate(0, 0);
+        }
+        10% {
+            transform: translate(50px, -10px);
+        }
+        15% {
+            transform: translate(150px, -80px);
+        }
+        30% {
+            transform: translate(60px, -60px);
+        }
+        50% {
+            transform: translate(-50px, 20px);
+        }
+        53% {
+            transform: translate(-60px, 10px);
+        }
+        60% {
+            transform: translate(0px, 0px);
+        }
+        63% {
+            transform: translate(5px, -20px);
+        }
+        80% {
+            transform: translate(30px, 150px);
+        }
+        83% {
+            transform: translate(0px, 150px);
+        }
+        90% {
+            transform: translate(-80px, 0px);
+        }
+        95% {
+            transform: translate(-40px, -30px);
+        }
+        100% {
+            transform: translate(0, 0);
+        }
+    }
 .decor-main__item--1 {
     top: 17%;
     left: -9%;
     width: 300px;
     height: 300px;
     background: #1E50FF;
+    animation-delay: -7s;
 }
 .decor-main__item--2 {
     top: 49%;
@@ -297,6 +358,7 @@ body {
     width: 400px;
     height: 400px;
     background: #9C08FF;
+    animation-delay: 0s;
 }
 .decor-main__item--3 {
     top: 15%;
@@ -304,6 +366,7 @@ body {
     width: 350px;
     height: 350px;
     background: #1E50FF;
+    animation-delay: -12s;
 
     /*top: 33%;
     right: 6%;
@@ -317,6 +380,7 @@ body {
     width: 350px;
     height: 200px;
     background: #FE00B7;
+    animation-delay: -22s;
 }
 
 /*==========================================*/

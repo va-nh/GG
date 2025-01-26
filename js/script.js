@@ -10,14 +10,13 @@ burger.addEventListener("click", () => {
 
 
 
-
 // Функция для генерации случайного числа в диапазоне
-function random(min, max) {
+/*function random(min, max) {
     return Math.random() * (max - min) + min;
-}
+}*/
 
 // Анимация объектов
-function animateDecorItems() {
+/*function animateDecorItems() {
     const decorItems = document.querySelectorAll('.decor-main__item');
 
     decorItems.forEach((item) => {
@@ -36,8 +35,8 @@ function animateDecorItems() {
 
         changePosition();
     });
-}
+}*/
 
 // Запуск анимации
-animateDecorItems();
+/*animateDecorItems();*/
 
