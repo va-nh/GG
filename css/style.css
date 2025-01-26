@@ -491,7 +491,7 @@ body {
         border-radius: 50%;
         position: absolute;
         filter: blur(70px);
-        opacity: 0.5;
+        opacity: 0.7;
         /*transition: transform 0,3s cubic-bezier(0.4, 0, 0.2, 1);*/
         animation: float 26s infinite ease-out;
     }
