@@ -1,0 +1,381 @@
+body {
+    font-family: 'Clash Display', "Poppins", sans-serif;
+    color: #fff;
+    font-size: 16px;
+    /*background: #051139;*/
+}
+.wrapper{
+	overflow: hidden;
+	min-height: 100%;
+	position: relative;
+
+	display: flex;
+	flex-direction: column;
+}
+.wrapper > main{
+	flex-grow: 1;
+}
+/* ============================ */
+[class*="__container"]{
+	max-width: 1260px;
+	margin: 0 auto;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+/* ============================ */
+.page{}
+.page__main-screen {
+    padding-top: 85px;
+    background: #051139;
+    height: 100vh;
+
+    position: relative; /* Создаем контекст для позиционирования */
+    overflow: hidden; /* Скрываем части декора за пределами экрана */
+}
+/* ============================ */
+.header {
+    width: 100%;
+    padding: 10px 0;
+    position: absolute;
+}
+.header-container {
+    display: flex;
+    align-items: center;
+
+	margin: 0 auto;
+	padding-left: 15px;
+	padding-right: 15px;
+
+    display: flex;
+    justify-content: space-between; /* Распределение элементов */
+    align-items: center;
+}
+@media (min-width: 1400px) {
+    .header-container {
+        padding-left: 30px;
+	    padding-right: 30px;
+    }
+}
+.header__logo {
+    z-index: 2;
+}
+.header__menu {
+    display: flex;
+    z-index: 2;
+}
+@media (min-width: 900px) {
+    .header__menu {
+        display: flex;
+    
+        position: absolute;
+        left: 50%; /* Центрирование по горизонтали */
+        transform: translateX(-50%); /* Смещение для точного центрирования */
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+    }
+}
+.menu-list {
+    display: flex;
+	flex-wrap: wrap;
+    justify-content: center;
+	gap: 25px;
+    padding: 0 15px;
+}
+@media (max-width: 800px) {
+    .menu-list {
+        gap: 20px;
+    }
+}
+.menu-item {
+    text-align: center;
+}
+.menu-link {
+    font-weight: 400;
+}
+
+.menu-link {
+    font-weight: 400;
+    position: relative;
+    display: inline-block;
+}
+
+.menu-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #25C376;
+    /*background-color: #dd3241;*/
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+.menu-link:hover {
+    transform: scale(1.05);
+}
+.menu-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/*============== Burger Menu ==============*/
+
+.header__burger {
+    margin-left: auto;
+    display: none; /* Скрываем на больших экранах */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 17px;
+    cursor: pointer;
+    z-index: 2;
+}
+.header__burger span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: #fff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+/* Адаптивные стили */
+@media (max-width: 800px) {
+    .header__logo img {
+        width: 50px;
+    }
+    .header__burger {
+        display: flex;
+    }
+    .header__menu {
+        flex-grow: 0;
+    }
+    .menu-list {
+        position: absolute;
+        top: 60px;
+        right: -300px; /* Начальное положение за пределами экрана */
+        width: 150px;
+        /*background: rgb(5, 18, 57, 0.1);*/
+        backdrop-filter: blur(15px);
+        padding: 20px;
+        border-radius: 8px;
+        z-index: 10;
+
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        opacity: 0; /* Прозрачность 0 */
+        pointer-events: none; /* Отключение взаимодействия */
+        transition: all 0.3s ease;
+    }
+    .menu-list.active {
+        right: 0; /* Сдвигаем на видимую область */
+        opacity: 1; /* Полностью видимое */
+        pointer-events: auto; /* Включаем взаимодействие */
+    }
+    .menu-item {
+        text-align: right;
+
+        transform: translateX(50px); /* Сдвигаем вправо за пределы */
+        opacity: 0; /* Прозрачные изначально */
+        transition: transform 0.3s ease, opacity 0.3s ease; /* Плавные эффекты */
+    }
+    /* Когда меню активно, пунктам добавляется задержка */
+    .menu-list.active .menu-item:nth-child(1) {
+        transition-delay: 0.1s;
+        transform: translateX(0);
+        opacity: 1;
+    }
+    .menu-list.active .menu-item:nth-child(2) {
+        transition-delay: 0.2s;
+        transform: translateX(0);
+        opacity: 1;
+    }
+    .menu-list.active .menu-item:nth-child(3) {
+        transition-delay: 0.3s;
+        transform: translateX(0);
+        opacity: 1;
+    }
+    .menu-list.active .menu-item:nth-child(4) {
+        transition-delay: 0.4s;
+        transform: translateX(0);
+        opacity: 1;
+    }
+    .header__action {
+        display: none; /* Скрываем кнопку на мобильных */
+    }
+}
+
+/* Анимация бургер-меню */
+.header__burger.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.header__burger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.header__burger.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+/*=========================================*/
+
+.header__action {
+    z-index: 2;
+}
+.header__action-button {
+}
+/*===================== Main Screen ====================*/
+
+.main-screen {
+}
+.main-screen__container {
+    position: relative; /* Контент поверх декора */
+    z-index: 1; /* Повышаем слой контента */
+    text-align: center;
+}
+.main-screen__title {
+    margin-top: 180px;
+    font-size: 42px;
+    letter-spacing: 1px;
+    font-weight: 900;
+    text-align: center;
+    line-height: 1.25;
+}
+.main-screen__sub-title {
+    margin-top: 20px;
+    font-family: "Poppins";
+    font-size: 26px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-align: center;
+    max-width: 780px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.25;
+}
+.main-screen__actions {
+    margin-top: 140px;
+    text-align: center;
+}
+.main-screen__actions>:nth-child(2){
+    margin-left: 20px; 
+}
+.main-screen__action-button {
+}
+.main-screen__decor-main {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+.decor-main {
+}
+.decor-main__item {
+    z-index: 0;
+    border-radius: 50%;
+    position: absolute;
+    filter: blur(120px);
+    opacity: 0.7;
+    transition: transform 0,3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.decor-main__item--1 {
+    top: 17%;
+    left: -9%;
+    width: 300px;
+    height: 300px;
+    background: #1E50FF;
+}
+.decor-main__item--2 {
+    top: 49%;
+    left: 20%;
+    width: 400px;
+    height: 400px;
+    background: #9C08FF;
+}
+.decor-main__item--3 {
+    top: 15%;
+    right: 9%;
+    width: 350px;
+    height: 350px;
+    background: #1E50FF;
+
+    /*top: 33%;
+    right: 6%;
+    width: 350px;
+    height: 350px;
+    background: #1E50FF;*/
+}
+.decor-main__item--4 {
+    bottom: 0%;
+    right: -2%;
+    width: 350px;
+    height: 200px;
+    background: #FE00B7;
+}
+
+/*==========================================*/
+/* Адаптивна сітка */
+/* #1 */
+/* PC */
+@media (max-width: 1199.98px){ /* Варто вказувати саме такі значення на 0.02 меньше !!!!!! */
+	[class*="__container"] {
+		max-width: 970px;
+	}
+}
+/* #2 */
+/* Tablet */
+@media (max-width: 990.98px) { /* Варто вказувати саме такі значення на 0.02 меньше !!!!!! */
+	[class*="__container"] {
+		max-width: 750px;
+	}
+    .main-screen__title {
+        font-size: 35px;
+        letter-spacing: 0.8px;
+    }
+    .main-screen__sub-title {
+        font-size: 24px;
+        letter-spacing: 0.3px;
+    }
+}
+/* #3 */
+/* Mobile */
+@media (max-width: 767.98px) { /* Варто вказувати саме такі значення на 0.02 меньше !!!!!! */
+	[class*="__container"] {
+		max-width: 450px;
+		/* max-width: none; */
+	}
+    .main-screen__title {
+        margin-top: 110px;
+        font-size: 28px;
+        letter-spacing: 1px;
+        line-height: 1.4;
+    }
+    .main-screen__sub-title {
+        margin-top: 20px;
+        font-size: 20px;
+        letter-spacing: 0.5px;
+        line-height: 1.6;
+    }
+    .main-screen__actions {
+        margin-top: 100px;
+        text-align: center;
+    }
+    .main-screen__actions>:nth-child(2){
+        margin: 20px 0 0 0;
+    }
+}
+/* #4 */
+/* Mobile Small Додатковий */
+/*
+@media (max-width: 480px) {
+	[class*="__container"] {
+		max-width: none;
+	}
+}
+*/
