@@ -570,3 +570,34 @@ body {
     }
     
 }
+@media (max-height: 730px) and (max-width: 480px) {
+    .main-screen__title {
+        margin-top: 80px;
+    }
+}
+@media (min-height: 880px) and (max-width: 480px) {
+    .main-screen__title {
+        margin-top: 150px;
+    }
+}
+@media (max-height: 850px) and (max-width: 425px) {
+    .main-screen__actions {
+        margin-top: 80px;
+    }
+}
+@media (max-height: 800px) and (max-width: 425px) {
+    .main-screen__title {
+        margin-top: 50px;
+    }
+    .main-screen__actions {
+        margin-top: 60px;
+    }
+}
+@media (max-height: 700px) and (max-width: 375px) {
+    .main-screen__title {
+        margin-top: 30px;
+    }
+    .main-screen__actions {
+        margin-top: 30px;
+    }
+}
