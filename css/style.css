@@ -32,6 +32,12 @@ body {
     position: relative; /* Создаем контекст для позиционирования */
     overflow: hidden; /* Скрываем части декора за пределами экрана */
 }
+.page__strip {
+    position: relative;
+    overflow: hidden;
+    background: #0F5B49;
+    height: 100px;
+}
 /* ============================ */
 .header {
     width: 100%;
@@ -382,9 +388,47 @@ body {
     background: #FE00B7;
     animation-delay: -22s;
 }
+/*===================== STRIP =====================*/
 
-@media (max-width: 800px)
+.strip {
+}
+.strip__body {
+    display: flex;
+    gap: 30px;
+    position: absolute;
+    animation: scroll-loop 30s linear infinite; /* Бесконечная анимация */
+    white-space: nowrap; /* Запрет на перенос текста */
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.strip__item {
+    font-family: 'Clash Display';
+    font-weight: 400;
+    font-size: 40px;
+    text-align: center;
+    margin: 0;
+    width: auto;
+}
+.strip__full {
+}
+.strip__border {
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px #fff;
+}
 
+@keyframes scroll-loop {
+    0% {
+        transform: translateX(0); /* Начальная позиция */
+    }
+    100% {
+        transform: translateX(-50%); /* Сдвиг всего контента на 100% */
+    }
+}
+
+
+
+/*==========================================*/
 /*==========================================*/
 /* Адаптивна сітка */
 /* #1 */
