@@ -38,6 +38,12 @@ body {
     background: #0F5B49;
     height: 100px;
 }
+.page__services {
+    position: relative;
+    overflow: hidden;
+    background: #1F232E;
+    padding-bottom: 80px;
+}
 /* ============================ */
 .header {
     width: 100%;
@@ -404,7 +410,7 @@ body {
 }
 .strip__item {
     font-family: 'Clash Display';
-    font-weight: 400;
+    font-weight: 600;
     font-size: 40px;
     text-align: center;
     margin: 0;
@@ -425,10 +431,126 @@ body {
         transform: translateX(-50%); /* Сдвиг всего контента на 100% */
     }
 }
+/*===================== Services =====================*/
 
 
+.services {
+}
+.services__container {
+    text-align: center;
+}
+.services__title {
+    margin-top: 80px;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    
+}
 
-/*==========================================*/
+.services__body {
+    margin-top: 60px;
+    display: flex;
+    gap: 10px;
+}
+@media (max-width: 1200px) {
+    .services__body {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+}
+.services__services-block {
+}
+.services-block {
+    text-align: center;
+}
+@media (min-width: 1200px) {
+    .services-block {
+        width: 300px;
+    }  
+}
+.services-block__icon {
+}
+.services-block__title {
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    font-family: "Lexend Deca";
+}
+@media (max-width: 1200px) and (min-width: 780px) {
+    .services-block__title {
+        width: 280px;
+        margin: 20px auto 15px auto;
+    }
+    .services-block:nth-child(2) .services-block__title{
+        margin: 5px auto 0px auto;
+    }
+}
+@media (min-width: 1200px) {
+    .services-block__title {
+        height: 30px;
+    }  
+}
+.services-block__text {
+    margin: 10px auto 0 auto;
+    font-family: "Lexend Deca";
+    font-weight: 300;
+    line-height: 1.8;
+    color: #d6d6d6;
+}
+@media (min-width: 780px) {
+    .services-block__text {
+        max-width: 280px;
+    }  
+}
+.services__under-text {
+    margin-top: 60px;
+    color: #AAAAAA;
+    text-align: center;
+}
+.services__action {
+    margin-top: 15px;
+    display: inline-block;
+    color: #AAAAAA;
+    text-decoration: underline;
+}
+.services__action:hover {
+    color: #fff;
+}
+.service__decor-item {
+    display: none;
+}
+
+@media screen and (min-width: 1390px) {
+    .services__decor {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+    }
+    .service__decor-item {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        overflow: hidden;
+        z-index: 0;
+        display: block;
+    }
+    .service__decor-item:first-child {
+        top: 50px;
+        left: 50px;
+    }
+    .service__decor-item:last-child {
+        bottom: 50px;
+        right: 50px;
+    } 
+}
+
 /*==========================================*/
 /* Адаптивна сітка */
 /* #1 */
@@ -520,6 +642,10 @@ body {
     }
     .main-screen__actions>:nth-child(2){
         margin: 20px 0 0 0;
+    }
+    /*------------------*/
+    .services__body {
+        gap: 50px;
     }
 }
 /* #4 */
