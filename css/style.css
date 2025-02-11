@@ -51,17 +51,12 @@ body {
     min-height: 100vh; /* Секція займає повний екран */
     overflow: hidden;  /* Запобігає виходу елементів за межі секції */
 }
-/*.page__our-story::before {
-    content: "";
-      top: -10px;
-      left: -10px;
-      right: -10px;
-      bottom: -10px;
-      background: url('../img/question-bg.jpg') no-repeat center center;
-      background-size: cover;
-      filter: blur(5px);    
-      z-index: -1;
-}*/
+.page__how-we-work {
+    position: relative;
+    padding-bottom: 80px;
+    background: #051139;
+    overflow: hidden;
+}
 /* ============================ */
 .header {
     width: 100%;
@@ -314,6 +309,8 @@ body {
     opacity: 1;
     /*transition: transform 0,3s cubic-bezier(0.4, 0, 0.2, 1);*/
     animation: float 26s infinite ease-out;
+
+    transition: opacity 0.5s ease-out, top 1s ease-in-out, left 1s ease-in-out;
 }
 /* Анимация движения */
 /*@keyframes float {
@@ -684,6 +681,288 @@ body {
     z-index: -1;
     will-change: transform;
 }
+/*==================== How We Work ======================*/
+
+
+
+.how-we-work {
+}
+.how-we-work__decor {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+.how-we-work__decor-item {
+    z-index: 0;
+    border-radius: 50%;
+    position: absolute;
+    filter: blur(100px);
+    opacity: 0.8;
+    /*transition: transform 0.2s ease-out;*/
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.how-we-work__decor-item--1 {
+    top: 35%;
+    left: -10%;
+    width: 420px;
+    height: 420px;
+    background: #52CBFF;
+}
+.how-we-work__decor-item--2 {
+    top: 18%;
+    left: 34%;
+    width: 300px;
+    height: 300px;
+    background: #9C08FF;
+}
+.how-we-work__decor-item--3 {
+    bottom: -10%;
+    left: 20%;
+    width: 350px;
+    height: 350px;
+    background: #1E50FF;
+}
+.how-we-work__decor-item--4 {
+    bottom: 20%;
+    right: 34%;
+    width: 200px;
+    height: 200px;
+    background: #fff;
+}
+.how-we-work__decor-item--5 {
+    top: -10%;
+    right: 0;
+    width: 500px;
+    height: 760px;
+    background: #1E50FF;
+}
+.how-we-work__decor-item--6 {
+    bottom: -18%;
+    right: -5%;
+    width: 360px;
+    height: 360px;
+    background: #52CBFF;
+}
+.how-we-work__container {
+    position: relative;
+    z-index: 2;
+}
+.how-we-work__title {
+    margin-top: 70px;
+    font-size: 28px;
+    text-align: center;
+    font-weight: 900;
+}
+.how-we-work__body {
+    position: relative;
+    margin: 100px auto 0 auto;
+    max-width: 1140px;
+}
+.how-we-work__step-block {
+    position: relative;
+    max-width: 500px;
+    background: rgba(5, 17, 57, 0.8);
+    border-radius: 20px;
+    padding: 40px 25px 25px 25px;
+    box-shadow: 15px 15px 4px rgba(0, 0, 0, 0.25);
+    z-index: 1;
+}
+.how-we-work__step-block--1 {
+}
+.how-we-work__step-block--2 { 
+}
+.how-we-work__step-block--3 {
+}
+/*------- PC -------*/
+@media (min-width: 1199.98px) {
+    .how-we-work__step-block--2 {
+        margin-left: auto;
+        margin-top: -50px;
+    }
+    .how-we-work__step-block--3 {
+        margin-top: -50px;
+    }
+    .how-we-work__line {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        margin-top: -179px;
+    }
+}
+/*------------------*/
+.step-block__label {
+    top: 10px;
+    right: 15px;
+    position: absolute;
+    color: #9C08FF;
+    font-family: 'Caveat';
+    font-weight: 700;
+    font-size: 18px;
+}
+.step-block__title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+.step-block__title::before{
+    content: "";
+    display: inline-block;
+    background: url('../img/how-we-work/step-1.svg') no-repeat center center;
+    background-size: 24px 24px;
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    margin-bottom: -3px;
+}
+.step-block__title-2::before {
+    background: url('../img/how-we-work/step-2.svg') no-repeat center center;
+}
+.step-block__title-3::before {
+    background: url('../img/how-we-work/step-3.svg') no-repeat center center;
+}
+.step-block__text {
+    margin-top: 15px;
+    font-family: 'Poppins';
+    font-weight: 200;
+    line-height: 1.8;
+    font-size: 15px;
+    text-align: justify;
+}
+.how-we-work__line {
+    z-index: 0;
+}
+@media (max-width: 1199.98px) {
+    .how-we-work__line {
+        display: none;
+    }
+}
+.how-we-work__line--1 {
+}
+.how-we-work__line--2 {
+}
+
+.animated-line, .animated-line-2 {
+    stroke: #ECEC22; /* Цвет линии */
+    stroke-width: 3;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    filter: drop-shadow(0px 0px 10px rgba(255, 221, 0, 0.7));
+    
+}
+.animated-shadow-1{
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: drawLine 2s ease-out forwards;
+    animation-delay: 0.3s;
+}
+.animated-shadow-2{
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: drawLine 2s ease-out forwards;
+    animation-delay: 2.2s;
+}
+/*.animated-line {
+    animation: drawLine 2s ease-out forwards, glow 2s infinite alternate;
+    animation-delay: 0.3s;
+}
+.animated-line-2 {
+    animation: drawLine 2s ease-out forwards, glow 2s infinite alternate;
+    animation-delay: 2.2s;
+}*/
+.shadow-line {
+    filter: blur(1px); /* Размытие тени */
+    transform: translate(10px, 15px); /* Смещаем тень вниз и влево */
+}
+
+/* Линии изначально без анимации */
+.animated-line,
+.animated-line-2,
+.animated-shadow-1,
+.animated-shadow-2 {
+    stroke-dashoffset: 1000; /* Скрываем линии */
+    animation: none; /* Убираем автоматический запуск */
+}
+
+/* Запуск анимации при добавлении класса */
+/* Запуск анимации первой линии */
+.start-animation.animated-line,
+.start-animation.animated-shadow-1 {
+    animation: drawLine 2s ease-out forwards, glow 2s infinite alternate;
+    animation-delay: 0.4s;
+}
+
+/* Запуск анимации второй линии (с задержкой 1.5s) */
+.start-animation.animated-line-2,
+.start-animation.animated-shadow-2 {
+    animation: drawLine 2s ease-out forwards, glow 2s infinite alternate;
+    animation-delay: 1.2s;
+}
+
+/* Анимация заливки линии */
+@keyframes drawLine {
+    from {
+        stroke-dashoffset: 1000;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes fadeInShadow {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.3;
+    }
+}
+
+@keyframes glow {
+    0% { filter: drop-shadow(0px 0px 10px rgba(255, 221, 0, 0.5)); }
+    50% { filter: drop-shadow(0px 0px 20px rgba(255, 221, 0, 1)); }
+    100% { filter: drop-shadow(0px 0px 10px rgba(255, 221, 0, 0.5)); }
+}
+/* Делаем SVG прозрачным, если он выходит за границы */
+svg {
+    overflow: visible;
+}
+.how-we-work__action {
+    text-align: center;
+}
+.how-we-work__action-button {
+    padding-left: 45px;
+    padding-right: 45px;
+}
+@media (min-width: 1199.98px) {
+    .how-we-work__action {
+        position: absolute;
+        bottom: 0;
+        right: 135px;
+    }
+}
+
+/*-- Анімація появи --*/
+/* Скрываем текстовые блоки по умолчанию */
+.how-we-work__step-block--1,
+.how-we-work__step-block--2,
+.how-we-work__step-block--3 {
+    opacity: 0;
+    transform: translateY(50px); /* Двигаем вниз перед появлением */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Когда элемент становится видимым */
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
 /*==========================================*/
 /* Адаптивна сітка */
 /* #1 */
@@ -692,6 +971,26 @@ body {
 	[class*="__container"] {
 		max-width: 970px;
 	}
+    /*------- how-we-work -------*/
+    .how-we-work__body {
+        margin-top: 50px;
+    }
+    .how-we-work__step-block {
+        margin: 0 auto;
+        margin-bottom: 30px;
+    }
+    .how-we-work__step-block--2 {
+        
+    }
+    .how-we-work__step-block--3 {
+        
+    }
+    .how-we-work__line {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        margin-top: -179px;
+    }
 }
 /* #2 */
 /* Tablet */
@@ -741,6 +1040,43 @@ body {
         height: 120px;
         background: #FE00B7;
         animation-delay: -22s;
+    }
+    /*--------- how-we-work ---------*/
+    .how-we-work__decor-item--1 {
+        top: 35%;
+        left: -10%;
+        width: 320px;
+        height: 220px;
+    }
+    .how-we-work__decor-item--2 {
+        top: 18%;
+        left: 34%;
+        width: 240px;
+        height: 240px;
+    }
+    .how-we-work__decor-item--3 {
+        bottom: -10%;
+        left: 20%;
+        width: 300px;
+        height: 300px;
+    }
+    .how-we-work__decor-item--4 {
+        bottom: 20%;
+        right: 34%;
+        width: 200px;
+        height: 200px;
+    }
+    .how-we-work__decor-item--5 {
+        top: -10%;
+        right: -12%;
+        width: 300px;
+        height: 550px;
+    }
+    .how-we-work__decor-item--6 {
+        bottom: -18%;
+        right: -5%;
+        width: 300;
+        height: 300px;
     }
 }
 /* #3 */
@@ -878,6 +1214,43 @@ body {
             transform: translate(0, 0);
         }
     }
+    /*------ how-we-work ------*/
+    .how-we-work__decor-item--1 {
+        top: 35%;
+        left: -25%;
+        width: 270px;
+        height: 220px;
+    }
+    .how-we-work__decor-item--2 {
+        top: 18%;
+        left: 34%;
+        width: 240px;
+        height: 240px;
+    }
+    .how-we-work__decor-item--3 {
+        bottom: -10%;
+        left: -10%;
+        width: 300px;
+        height: 300px;
+    }
+    .how-we-work__decor-item--4 {
+        bottom: 20%;
+        right: 34%;
+        width: 200px;
+        height: 200px;
+    }
+    .how-we-work__decor-item--5 {
+        top: -10%;
+        right: -17%;
+        width: 300px;
+        height: 500px;
+    }
+    .how-we-work__decor-item--6 {
+        bottom: -18%;
+        right: -15%;
+        width: 220;
+        height: 220px;
+    }
     
 }
 @media (max-height: 730px) and (max-width: 480px) {
@@ -910,4 +1283,19 @@ body {
     .main-screen__actions {
         margin-top: 30px;
     }
+}
+
+
+
+
+/*-- Анімація появи --*/
+.hidden {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
 }
