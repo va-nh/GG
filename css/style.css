@@ -46,10 +46,14 @@ body {
 }
 .page__our-story {
     position: relative;
-    /*padding-bottom: 60px;*/
     padding: 100px 0; /* Збільшення відступів для кращої видимості паралаксу */
     min-height: 100vh; /* Секція займає повний екран */
     overflow: hidden;  /* Запобігає виходу елементів за межі секції */
+}
+@media (max-width: 480px) {
+    .page__our-story {
+        padding: 100px 0 180px 0;
+    }
 }
 .page__how-we-work {
     position: relative;
@@ -1213,6 +1217,10 @@ svg {
         100% {
             transform: translate(0, 0);
         }
+    }
+    /*------- our-story -------*/
+    .how-we-work__step-block {
+        box-shadow: 7px 7px 3px rgba(0, 0, 0, 0.25);
     }
     /*------ how-we-work ------*/
     .how-we-work__decor-item--1 {
