@@ -1055,7 +1055,8 @@ svg {
     text-align: center;
     color: #ADADAD;
     font-size: 14px;
-    padding-bottom: 5px;
+    padding-bottom: 10px;
+    background: #1F232E;
 }
 .book-call__stars {
     position: absolute;
@@ -1066,7 +1067,65 @@ svg {
     z-index: 0;
     overflow: hidden;
 }
-/*--------------------------------------------------*/
+/*------------------- Footer ----------------------*/
+.hr-line{
+    position: absolute;
+    top: 0;
+    width: 60%;
+    height: 1px;
+    background: #8f8f8f;
+    left: 20%;
+}
+.footer {
+    position: relative;
+    background: #1F232E;
+    padding: 25px 0;
+}
+.footer__container {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+}
+.footer__email {
+}
+@media (max-width: 350px) {
+    .footer__container {
+        flex-wrap: wrap;
+    }
+}
+.footer__email::before {
+    content: "";
+    display: inline-block;
+    background: url('../icons/email.svg') no-repeat center center;
+    background-size: 24px 24px;
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+.footer__linkedin {
+}
+.footer__linkedin::before {
+    content: "";
+    display: inline-block;
+    background: url('../icons/linkedin_blue.svg') no-repeat center center;
+    background-size: 24px 24px;
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+.footer__whatsapp::before {
+    content: "";
+    display: inline-block;
+    background: url('../icons/whatsapp.svg') no-repeat center center;
+    background-size: 24px 24px;
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
 /* Адаптивна сітка */
 /* #1 */
 /* PC */
@@ -1372,6 +1431,16 @@ svg {
         right: -15%;
         width: 220;
         height: 220px;
+    }
+    /*------------------------*/
+    .hr-line{
+        width: 92%;
+        left: 4%;
+    }
+    .footer {
+        position: relative;
+        background: #1F232E;
+        padding: 20px 0;
     }
     
 }
