@@ -60,33 +60,30 @@ document.addEventListener("DOMContentLoaded", teleportBubbles);*/
 
 
 
-// кружки двигаются за мышкой
-document.addEventListener("mousemove", (event) => {
-    const decorItems = document.querySelectorAll(".how-we-work__decor-item");
-    const { clientX: mouseX, clientY: mouseY } = event;
+// Движение кружков за мышкой (отключаем на мобильных)
+if (window.innerWidth > 768) {
+    document.addEventListener("mousemove", (event) => {
+        const decorItems = document.querySelectorAll(".how-we-work__decor-item");
+        const { clientX: mouseX, clientY: mouseY } = event;
 
-    decorItems.forEach((item) => {
-        const rect = item.getBoundingClientRect();
-        const itemX = rect.left + rect.width / 2;
-        const itemY = rect.top + rect.height / 2;
+        decorItems.forEach((item) => {
+            const rect = item.getBoundingClientRect();
+            const itemX = rect.left + rect.width / 2;
+            const itemY = rect.top + rect.height / 2;
 
-        // Рассчитываем расстояние от курсора до центра кружка
-        const deltaX = mouseX - itemX;
-        const deltaY = mouseY - itemY;
-        const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+            const deltaX = mouseX - itemX;
+            const deltaY = mouseY - itemY;
+            const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+            const maxMove = 150; 
+            const force = Math.max(0, maxMove - distance * 0.2);
 
-        // Чем ближе курсор, тем сильнее кружок "отскакивает"
-        const maxMove = 150; // Максимальное смещение
-        const force = Math.max(0, maxMove - distance * 0.2); // Чем ближе мышь, тем больше force
+            const moveX = (-deltaX / distance) * force;
+            const moveY = (-deltaY / distance) * force;
 
-        // Направление движения от курсора
-        const moveX = (-deltaX / distance) * force;
-        const moveY = (-deltaY / distance) * force;
-
-        // Применяем смещение с эффектом "возвращения" через transform
-        item.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            item.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
     });
-});
+}
 
 // Когда мышь уходит, кружки возвращаются в исходное положение
 document.addEventListener("mouseleave", () => {

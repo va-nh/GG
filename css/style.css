@@ -51,6 +51,12 @@ body {
     min-height: 100vh; /* Секція займає повний екран */
     overflow: hidden;  /* Запобігає виходу елементів за межі секції */
 }
+@media screen and (max-width: 480px) {
+    .page__our-story {
+        padding: 100px 0 180px 0;
+    }
+    
+}
 .page__how-we-work {
     position: relative;
     padding-bottom: 80px;
