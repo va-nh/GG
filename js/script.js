@@ -180,6 +180,27 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+/*-------------------------- Back to top --------------------------*/
+document.addEventListener("DOMContentLoaded", function () {
+    const backToTopButton = document.getElementById("backToTop");
+
+    // Показывать кнопку, когда скроллим вниз
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+            backToTopButton.style.display = "flex";
+        } else {
+            backToTopButton.style.display = "none";
+        }
+    });
+
+    // Плавный скролл наверх при нажатии
+    backToTopButton.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+});
 
 
 
