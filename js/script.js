@@ -100,7 +100,7 @@ document.addEventListener("mouseleave", () => {
 
 // Анімація появи контенту при прокрутці
 document.addEventListener("DOMContentLoaded", () => {
-    const elements = document.querySelectorAll('.our-story__title, .who-we-are__title, .who-we-are__text, .unique__title, .unique p, .how-we-work__title, .how-we-work__action');
+    const elements = document.querySelectorAll('.appear, .our-story__title, .who-we-are__title, .who-we-are__text, .unique__title, .unique p, .how-we-work__title, .how-we-work__action');
 
     // Добавляем всем элементам класс "hidden" (чтобы они были скрыты изначально)
     elements.forEach((el) => el.classList.add("hidden"));
@@ -112,6 +112,31 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (entry.isIntersecting) {
                     setTimeout(() => {
                         entry.target.classList.add("show");
+                    }, index * 200); // Задержка для поочерёдного появления
+                }
+            });
+        },
+        { threshold: 0.3 } // Элемент считается видимым, когда 30% его площади видно
+    );
+
+    // Подключаем observer ко всем элементам
+    elements.forEach((el) => observer.observe(el));
+});
+
+// Анімація появи контенту при прокрутці 2
+document.addEventListener("DOMContentLoaded", () => {
+    const elements = document.querySelectorAll('.appear-2');
+
+    // Добавляем всем элементам класс "hidden" (чтобы они были скрыты изначально)
+    elements.forEach((el) => el.classList.add("hidden-2"));
+
+    // Создаём Intersection Observer
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add("show-2");
                     }, index * 200); // Задержка для поочерёдного появления
                 }
             });

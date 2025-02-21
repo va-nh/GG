@@ -1496,6 +1496,17 @@ svg {
     transform: translateY(0);
 }
 
+.hidden-2 {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.show-2 {
+    opacity: 1;
+    transform: translateX(0);
+}
+
 
 /*------- back to top -------*/
 @media (min-width: 1200px) {
