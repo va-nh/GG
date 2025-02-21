@@ -8,6 +8,17 @@ burger.addEventListener("click", () => {
     menu.classList.toggle("active");
 });
 
+// Закрытие мобильного меню при нажатии на ссылку
+document.querySelectorAll(".menu-link").forEach(link => {
+    link.addEventListener("click", () => {
+        if (menu.classList.contains("active")) {
+            menu.classList.remove("active");
+            burger.classList.remove("active");
+        }
+    });
+});
+
+
 //паралакс ефект
 window.addEventListener('scroll', () => {
     const section = document.querySelector('.page__our-story');
