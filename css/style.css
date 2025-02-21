@@ -1202,6 +1202,12 @@ svg {
     .perfect-match__block {
         margin-top: 50px;
     }
+    .perfect-match__list li::before {
+        font-size: 10px;
+        position: absolute;
+        left: 0;
+        top: 6px;
+    }
 }
 /* #4 */
 /* Mobile Small Додатковий */
