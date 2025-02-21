@@ -8,15 +8,37 @@ burger.addEventListener("click", () => {
     menu.classList.toggle("active");
 });
 
-// Закрытие мобильного меню при нажатии на ссылку
+// убираем хэштэг из URL при клике на ссылку
 document.querySelectorAll(".menu-link").forEach(link => {
-    link.addEventListener("click", () => {
-        if (menu.classList.contains("active")) {
-            menu.classList.remove("active");
-            burger.classList.remove("active");
+    link.addEventListener("click", function (e) {
+        e.preventDefault(); // Отключаем стандартное поведение ссылок
+
+        const targetId = this.getAttribute("href").substring(1);
+        const targetSection = document.getElementById(targetId);
+
+        if (targetSection) {
+            const headerHeight = document.querySelector(".header").offsetHeight;
+            const targetPosition = targetSection.offsetTop - headerHeight;
+
+            window.scrollTo({
+                top: targetPosition,
+                behavior: "smooth"
+            });
+
+            // Убираем хэштэг из URL
+            history.replaceState(null, null, window.location.pathname);
+
+            // Закрываем мобильное меню
+            const menu = document.querySelector(".menu");
+            const burger = document.querySelector(".burger");
+            if (menu.classList.contains("active")) {
+                menu.classList.remove("active");
+                burger.classList.remove("active");
+            }
         }
     });
 });
+
 
 
 //паралакс ефект
@@ -247,96 +269,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+document.addEventListener("DOMContentLoaded", function () {
+    function checkAnimations() {
+        let elements = document.querySelectorAll(".animate-on-scroll"); // Замените на класс анимации
+        let windowHeight = window.innerHeight;
 
+        elements.forEach(el => {
+            let position = el.getBoundingClientRect().top;
+            if (position < windowHeight * 0.9) {
+                el.classList.add("animated"); // Класс, который активирует анимацию
+            }
+        });
+    }
 
+    // Проверяем анимации при загрузке
+    checkAnimations();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// кружки двигаются за мышкой (слабо)
-/*document.addEventListener("mousemove", (event) => {
-    const decorItems = document.querySelectorAll(".how-we-work__decor-item");
-    const { clientX: mouseX, clientY: mouseY } = event;
-
-    decorItems.forEach((item) => {
-        const rect = item.getBoundingClientRect();
-        const itemX = rect.left + rect.width / 2;
-        const itemY = rect.top + rect.height / 2;
-
-        // Рассчитываем расстояние от мышки до центра элемента
-        const deltaX = mouseX - itemX;
-        const deltaY = mouseY - itemY;
-        const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-
-        // Чем ближе мышь, тем сильнее движение (обратная зависимость)
-        const maxMove = 50; // Максимальное смещение (можно изменить)
-        const moveX = (deltaX / distance) * Math.max(0, maxMove - distance * 0.1);
-        const moveY = (deltaY / distance) * Math.max(0, maxMove - distance * 0.1);
-
-        item.style.transform = `translate(${moveX}px, ${moveY}px)`;
-    });
-});*/
-
-
-
-//эффект паралакса для кружков
-/*document.addEventListener("mousemove", (event) => {
-    const decorItems = document.querySelectorAll(".how-we-work__decor-item");
-    const { clientX: mouseX, clientY: mouseY } = event;
-
-    decorItems.forEach((item, index) => {
-        const speed = (index + 1) * 0.02; // Увеличиваем эффект для дальних кружков
-        const x = (window.innerWidth / 2 - mouseX) * speed;
-        const y = (window.innerHeight / 2 - mouseY) * speed;
-
-        item.style.transform = `translate(${x}px, ${y}px)`;
-    });
-});*/
-
-
-
-
-// Функция для генерации случайного числа в диапазоне
-/*function random(min, max) {
-    return Math.random() * (max - min) + min;
-}*/
-
-// Анимация объектов
-/*function animateDecorItems() {
-    const decorItems = document.querySelectorAll('.decor-main__item');
-
-    decorItems.forEach((item) => {
-        // Функция смены позиции объекта
-        function changePosition() {
-            const newTop = random(10, 90); // Новая позиция по Y (в процентах)
-            const newLeft = random(10, 90); // Новая позиция по X (в процентах)
-
-            // Меняем позицию элемента
-            item.style.top = `${newTop}%`;
-            item.style.left = `${newLeft}%`;
-
-            // Повторяем смену позиции через случайное время
-            setTimeout(changePosition, random(1000, 5000));
-        }
-
-        changePosition();
-    });
-}*/
-
-// Запуск анимации
-/*animateDecorItems();*/
-
+    // Также продолжаем отслеживать при скролле
+    window.addEventListener("scroll", checkAnimations);
+});
