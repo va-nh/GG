@@ -209,23 +209,31 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", function () {
     const backToTopButton = document.getElementById("backToTop");
 
-    // Показывать кнопку, когда скроллим вниз
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > 300) {
-            backToTopButton.style.display = "flex";
-        } else {
+    function toggleBackToTop() {
+        if (window.innerWidth <= 1199.98) {
             backToTopButton.style.display = "none";
+        } else {
+            if (window.scrollY > 300) {
+                backToTopButton.style.display = "flex";
+            } else {
+                backToTopButton.style.display = "none";
+            }
         }
-    });
+    }
 
-    // Плавный скролл наверх при нажатии
+    window.addEventListener("scroll", toggleBackToTop);
+    window.addEventListener("resize", toggleBackToTop); // Добавляем проверку при изменении экрана
+
     backToTopButton.addEventListener("click", () => {
         window.scrollTo({
             top: 0,
             behavior: "smooth"
         });
     });
+
+    toggleBackToTop(); // Проверяем при загрузке страницы
 });
+
 
 
 
