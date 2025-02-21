@@ -1002,6 +1002,9 @@ svg {
 }
 .perfect-match__list {
     margin-top: 20px;
+
+    list-style: disc;
+    padding-left: 20px;
 }
 .perfect-match__item {
     font-size: 18px;
@@ -1011,15 +1014,10 @@ svg {
 }
 .perfect-match__list li {
     position: relative;
-    padding-left: 25px;
-}
-.perfect-match__list li::before {
-    content: "●";
-    color: #ffffff;
-    font-size: 14px;
-    position: absolute;
-    left: 0;
-    top: 3px;
+
+    display: list-item !important;
+    list-style-type: disc !important;
+    margin-bottom: 10px;
 }
 .perfect-match__stars {
     position: absolute;
@@ -1201,12 +1199,6 @@ svg {
     }
     .perfect-match__block {
         margin-top: 50px;
-    }
-    .perfect-match__list li::before {
-        font-size: 10px;
-        position: absolute;
-        left: 0;
-        top: 6px;
     }
 }
 /* #4 */
